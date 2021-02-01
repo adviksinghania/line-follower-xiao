@@ -71,7 +71,7 @@ void setup() {  // Setup function
 }
 
 void loop() { // Main loop function
-  int readleft = analogRead(ir_left);  // values now in the range of 0 to 6
+  int readleft = analogRead(ir_left);  // values in the range of 0 to 1023
   int readright = analogRead(ir_right);
   int threshold = 512 // <- Adjust this value according to your needs
   //  Serial.print("Left: ");  // for debugging
