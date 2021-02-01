@@ -1,3 +1,8 @@
+// Author: Advik Singhania
+// Date: 1st February, 2021
+// Board: Seeeduino Xiao (32-bit Cortex M0+)
+// Arduino Code for Line Follwer robot made using Seeeduino Xiao
+
 int led = 13;  // LED pin
 int right1 = 9;  // Right motor pin 1
 int right2 = 8;  // Right motor pin 2
@@ -68,16 +73,17 @@ void setup() {  // Setup function
 void loop() { // Main loop function
   int readleft = analogRead(ir_left);  // values now in the range of 0 to 6
   int readright = analogRead(ir_right);
+  int threshold = 512 // <- Adjust this value according to your needs
   //  Serial.print("Left: ");  // for debugging
   //  Serial.print(readleft);
   //  Serial.print('\t');
   //  Serial.print("Right: ");
   //  Serial.println(readright);
-  if (readleft < 512 && readright < 512)
+  if (readleft < threshold && readright < threshold)
     forward();
-  else if (readleft > 512 && readright < 512)
+  else if (readleft > threshold && readright < threshold)
     left();
-  else if (readleft < 512 && readright > 512)
+  else if (readleft < threshold && readright > threshold)
     right();
   else
     initialize();
